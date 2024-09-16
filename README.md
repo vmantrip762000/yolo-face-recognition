@@ -6,20 +6,26 @@ This application fine-tunes a YOLOv5 model to recognize faces and objects in ima
 
 ## Usage
 
-Build the Docker image:
+### Build the Docker image:
 
-bashCopydocker build -t yolov5_face_recognition .
-
+bash
+Copy
+```
+docker build -t yolov5_face_recognition .
+```
 Run the Docker container:
 
-bashCopydocker run -v $(pwd)/output:/app/output yolov5_face_recognition <URL_TO_ZIPPED_FILE> <PERSON_NAME>
+bash
+Copy
+```docker run -v $(pwd)/output:/app/output yolov5_face_recognition <URL_TO_ZIPPED_FILE> <PERSON_NAME>
+```
 Replace <URL_TO_ZIPPED_FILE> with the URL of the zipped file containing face images, and <PERSON_NAME> with the name of the person in the images.
 The fine-tuned model will be saved in the output directory with the name <PERSON_NAME>_model.pt.
-Output
+### Output
 The application will print the results of object detection and face recognition for each image in the input zip file.
 Notes
 
-This implementation uses YOLOv5 from Ultralytics.
+**This implementation uses YOLOv5 from Ultralytics.**
 The model is fine-tuned for 100 epochs by default. You can adjust this in the fine_tune_model function in utils.py.
 For better results, you may need to annotate your dataset properly and adjust the training parameters.
 
